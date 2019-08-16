@@ -5,6 +5,7 @@
         "128": "icon2_128_128.png"
     },
     "name": "ReaderTools",
+    "short_name": "ReaderTools",
     "description": "Tools for an enhanced experience with the Kindle Cloud Reader, including clipboard and translate functionality.",
     "version": "0.1",
     "page_action": {
