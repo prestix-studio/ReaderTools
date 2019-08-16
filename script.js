@@ -30,23 +30,12 @@ var w = null;
 var kDoc = null;
 var kObj = null;
 
-/*if (typeof window.KindleReaderContextMenu !== 'undefined') {
-    w = window;
-} else if (window.length) {
-    for (var i=0;i<window.length;i++) {
-        if (typeof window[i].KindleReaderContextMenu !== 'undefined') {
-            w = window[i];
-            break;
-        }
-    }
-}*/
 
 w = window;
 
 if (typeof w === 'object') {
     kObj = w.KindleReaderContextMenu;
     kDoc = w.document;
-   // if (typeof kObj.ACRExtensions === 'undefined') {
         kObj.ACRExtensions = true;
         var oldMethod = kObj.show;
         kObj.show = function () {
@@ -125,8 +114,6 @@ if (typeof w === 'object') {
                         return userLang;
                     }
 
-                    //alert(getBrowserLanguage());
-
                     var currentLanguage = getBrowserLanguage();
 
                     if(typeof currentLanguage === 'undefined'){
@@ -136,9 +123,7 @@ if (typeof w === 'object') {
                     } else if(currentLanguage === 'zh'){
                         currentLanguage = 'zh-CN';
                     }
-                    //alert(currentLanguage);
                     var url = 'https://translate.google.com/#auto/' + currentLanguage + '/';
-                    //alert(url);
                     var newTab = window.open(url + text, '_blank');
                     newTab.focus();
                 }
@@ -162,11 +147,6 @@ if (typeof w === 'object') {
 
             return res;
         };
-
-        //alert('Kindle Optimizer is now active.');
-   /* } else {
-        alert('Kindle Optimizer is already active.');
-    }*/
 } else {
     alert('Error: Kindle Optimizer is not active. The Amazon Cloud Reader window could not be found.');
 }
