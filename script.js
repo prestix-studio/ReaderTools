@@ -71,8 +71,8 @@ if (typeof w === 'object') {
                     r.setEndAfter($('#'+eId, txtDoc).get(0));
                 }
             }
-			
-	        $('#ACRExtensions_searchB_sep', kDoc).remove();
+
+            $('#ACRExtensions_searchB_sep', kDoc).remove();
             $('#ACRExtensions_searchB', kDoc).remove();
             var sepEl = $('<div id="ACRExtensions_searchB_sep" class="kindle_menu_separator"></div>');
             var searchB = $('<div id="ACRExtensions_searchB" class="kindle_menu_button button_enabled ui-corner-left">Search</div>');
@@ -83,16 +83,16 @@ if (typeof w === 'object') {
             }, 1);
             $('#ACRExtensions_searchB', kDoc).click(function (evt) {
                 if (r) {
-				
-					var content = r.cloneContents(); 
-					var text = content.textContent;
-					var url = 'https://www.google.com/?gfe_rd=cr&ei=ogkeWeD0NvTJXpeog4gK&gws_rd=cr&fg=1#q=';
+
+                    var content = r.cloneContents();
+                    var text = content.textContent;
+                    var url = 'https://www.google.com/?gfe_rd=cr&ei=ogkeWeD0NvTJXpeog4gK&gws_rd=cr&fg=1#q=';
                     var newTab = window.open(url + text, '_blank');
-					newTab.focus();
+                    newTab.focus();
                 }
             });
-			
-			$('#ACRExtensions_translateB_sep', kDoc).remove();
+
+            $('#ACRExtensions_translateB_sep', kDoc).remove();
             $('#ACRExtensions_translateB', kDoc).remove();
             var sepEl = $('<div id="ACRExtensions_translateB_sep" class="kindle_menu_separator"></div>');
             var translateB = $('<div id="ACRExtensions_translateB" class="kindle_menu_button button_enabled ui-corner-left">Translate</div>');
@@ -103,47 +103,47 @@ if (typeof w === 'object') {
             }, 1);
             $('#ACRExtensions_translateB', kDoc).click(function (evt) {
                 if (r) {
-				
-					var content = r.cloneContents(); 
-					var text = content.textContent;
-					
-					// This function is not used since 'googtrans' coockie is unavailable for kindle page.
-					function readCookie(name) {
-						var c = kDoc.cookie.split('; '),
-						cookies = {}, i, C;
-						for (i = c.length - 1; i >= 0; i--) {
-							C = c[i].split('=');
-							cookies[C[0]] = C[1];
-						}
-						return cookies[name];
-					}
-					
-					function getBrowserLanguage() {
-						var userLang = navigator.language || navigator.userLanguage;
-						userLang = userLang.split('-')[0];
-						return userLang;
-					}
-					
-					//alert(getBrowserLanguage());
-					
-					var currentLanguage = getBrowserLanguage();
-					
-					if(typeof currentLanguage === 'undefined'){
-						currentLanguage = 'en';
-					} else if(currentLanguage === 'he'){
-						currentLanguage = 'iw';
-					} else if(currentLanguage === 'zh'){
-						currentLanguage = 'zh-CN';
-					} 
-					//alert(currentLanguage);
-					var url = 'https://translate.google.com/#auto/' + currentLanguage + '/';
-					//alert(url);
+
+                    var content = r.cloneContents();
+                    var text = content.textContent;
+
+                    // This function is not used since 'googtrans' coockie is unavailable for kindle page.
+                    function readCookie(name) {
+                        var c = kDoc.cookie.split('; '),
+                        cookies = {}, i, C;
+                        for (i = c.length - 1; i >= 0; i--) {
+                            C = c[i].split('=');
+                            cookies[C[0]] = C[1];
+                        }
+                        return cookies[name];
+                    }
+
+                    function getBrowserLanguage() {
+                        var userLang = navigator.language || navigator.userLanguage;
+                        userLang = userLang.split('-')[0];
+                        return userLang;
+                    }
+
+                    //alert(getBrowserLanguage());
+
+                    var currentLanguage = getBrowserLanguage();
+
+                    if(typeof currentLanguage === 'undefined'){
+                        currentLanguage = 'en';
+                    } else if(currentLanguage === 'he'){
+                        currentLanguage = 'iw';
+                    } else if(currentLanguage === 'zh'){
+                        currentLanguage = 'zh-CN';
+                    }
+                    //alert(currentLanguage);
+                    var url = 'https://translate.google.com/#auto/' + currentLanguage + '/';
+                    //alert(url);
                     var newTab = window.open(url + text, '_blank');
-					newTab.focus();
+                    newTab.focus();
                 }
             });
 
-  	    $('#ACRExtensions_copyB_sep', kDoc).remove();
+        $('#ACRExtensions_copyB_sep', kDoc).remove();
             $('#ACRExtensions_copyB', kDoc).remove();
             var sepEl = $('<div id="ACRExtensions_copyB_sep" class="kindle_menu_separator"></div>');
             var copyB = $('<div id="ACRExtensions_copyB" class="kindle_menu_button button_enabled ui-corner-left">Copy</div>');
