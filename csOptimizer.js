@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.action == "loadURL") {
+    if (request.action == 'loadURL') {
         console.log ('once');
         var url = 'http://gettocode.com';
         var newTab = window.open(url, '_blank');
@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
 });
 
-chrome.runtime.sendMessage({action: "show"});
+chrome.runtime.sendMessage({action: 'show'});
 
 var s = document.createElement('script');
 s.src = chrome.extension.getURL('script.js');
